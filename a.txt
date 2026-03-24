@@ -1,0 +1,17 @@
+Abra os seguintes sites do Sesi/Senai abaixo e rode o Lighthouse (F12 do Chrome):
+https://sesisc.org.br -------> 91%
+https://sc.senai.br -------> 85%
+https://estudante.sesisenai.org.br -------> 87%
+<meta flt-viewport="" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> faz com que o usuario não consiga dar zoom e atrapalha quem tem problemas de visão
+https://ava.sesisenai.org.br -------> 83%
+A primeira falha é o uso incorreto de aria-hidden="true" em elementos que ainda possuem links ou botões. Isso faz com que leitores de tela ignorem o conteúdo, mas ele ainda continua clicável, causando confusão. Exemplo do problema: <div aria-hidden="true"><a href="/curso">Acessar curso</a></div>. A correção é remover o aria-hidden nesses casos, deixando apenas quando o conteúdo for realmente decorativo, como: <div><a href="/curso">Acessar curso</a></div>.
+Outra falha é o baixo contraste entre texto e fundo, o que dificulta a leitura para pessoas com baixa visão. Um exemplo ruim é color: #aaa; background: #fff;. A correção é usar cores mais contrastantes, como color: #1a1a1a; background: #ffffff;, garantindo melhor legibilidade.
+Também foi identificada a falta de legendas em vídeos, o que prejudica usuários surdos. Um exemplo sem acessibilidade é <video src="aula.mp4" controls></video>. A correção é adicionar legendas usando a tag <track>, como <video controls><source src="aula.mp4" type="video/mp4"><track src="legendas.vtt" kind="subtitles" srclang="pt" label="Português"></video>.
+https://monitor.acessibilidade.gov.pt -------> %
+Identifique 3 falhas de acessibilidade para cegos ou surdos e explique como você as corrigiria usando código. DICA: teste também mais duas URLs específicas de cada site. Ex.: https://estudante.sesisenai.org.br/documentos
+
+
+
+
+
+Faremos um relatório coletivo em sala a ser entregue ao SENAI SC apontando os principais pontos de melhoria.
