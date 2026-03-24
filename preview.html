@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora 2T</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 350px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 93%;
+      padding: 3%;
+      margin: 12px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #28a745;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #218838;
+    }
+
+    .resultado {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h2>Calculadora 2T</h2>
+    <input type="number" id="litros" placeholder="Litros de gasolina">
+    <input type="number" id="mlPorLitro" placeholder="ML de óleo por litro">
+    
+
+    <button onclick="calcular()">Calcular</button>
+
+    <div class="resultado" id="resultado"></div>
+  </div>
+
+  <script>
+    function calcular() {
+      let mlPorLitro = parseFloat(document.getElementById("mlPorLitro").value);
+      let litros = parseFloat(document.getElementById("litros").value);
+
+      if (isNaN(mlPorLitro) || isNaN(litros)) {
+        document.getElementById("resultado").innerText = "Preencha tudo corretamente!";
+        return;
+      }
+
+      let total = mlPorLitro * litros;
+
+      document.getElementById("resultado").innerText =
+        "Você deve usar " + total.toFixed(1) + " ml de óleo";
+    }
+  </script>
+
+</body>
+</html>
